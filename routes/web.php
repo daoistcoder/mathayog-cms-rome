@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cc_question_form', function () {
+    return view('/edward_rome_task/cc_question_form');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
