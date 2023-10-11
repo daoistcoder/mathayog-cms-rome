@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .accordion {
+      background-color: #f1f1f1;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .panel {
+      display: none;
+      padding: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="accordion">Section 1</div>
+<div class="panel">
+  <label for="field1">Field 1:</label>
+  <input type="text" id="field1"><br>
+  <label for="field2">Field 2:</label>
+  <input type="text" id="field2"><br>
+</div>
+
+<button id="addSection">Add Section</button>
+
+<script>
+document.getElementById("addSection").addEventListener("click", function() {
+  var panel = document.createElement("div");
+  panel.className = "panel";
+
+  var label1 = document.createElement("label");
+  label1.textContent = "Field " + (document.querySelectorAll(".panel").length + 1) + ":";
+  var input1 = document.createElement("input");
+
+  var label2 = document.createElement("label");
+  label2.textContent = "Field " + (document.querySelectorAll(".panel").length + 1) + ":";
+  var input2 = document.createElement("input");
+
+  panel.appendChild(label1);
+  panel.appendChild(input1);
+  panel.appendChild(document.createElement("br"));
+  panel.appendChild(label2);
+  panel.appendChild(input2);
+
+  document.body.insertBefore(panel, document.getElementById("addSection"));
+});
+</script>
+
+</body>
+</html>
