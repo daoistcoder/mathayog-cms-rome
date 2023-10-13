@@ -1,0 +1,31 @@
+*
+{
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.course_container, .course{
+    display: none;
+}
+
+
+.lesson_container{
+    margin: 20px;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+
+}
+
+.lesson_container > h3{
+    padding: 20px;
+    background-color: lightblue;
+    border-radius: 15px;
+}
+
+.video-container, .activity-container, .exercise-container, .summative-container{
+    margin: 20px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}

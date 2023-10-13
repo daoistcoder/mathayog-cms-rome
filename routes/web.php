@@ -25,6 +25,10 @@ Route::get('/cc_question_form', function () {
     return view('/edward_rome_task/cc_question_form');
 });
 
+Route::get('/course_content_view', function () {
+    return view('/edward_rome_task/course_content_view');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

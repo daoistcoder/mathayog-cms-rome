@@ -19,6 +19,7 @@
       cursor: pointer;
       background-color: #eeeeee;
       border-bottom: 1px solid #dddddd;
+      /* display: none; */
     }
 
     .accordion-collapse {
@@ -44,7 +45,13 @@
       <h2 class="accordion-header">Course Content</h2>
       <div class="accordion-collapse" id="accordion-collapse-level">
         <div class="accordion-body">
-          <input type="text" name="level" placeholder="Select Course Title">
+          <!-- <input type="text" name="level" placeholder="Select Course Title"> -->
+          <select name="course" id="select_course_title">
+            <option value="">Select Course title</option>
+            <option value="WN-P2-A1.1">Counting to 1,000 Using Blocks </option>
+            <option value="F-P@-A1.1">Counting to 1,000 Using Place Values </option>
+            <option value="F-P@-A1.1">Comparing Numbers to 1,000 (Comparing Hundreds and Tens) </option>
+        </select>
         </div>
 
         <!-- <div class="accordion">
@@ -60,7 +67,7 @@
 
         <div class="accordion">
           <div class="accordion-item">
-            <h2 class="accordion-header">Course Title 1</h2>
+            <h2 class="accordion-header" id="course_header_title">Course Title 1</h2>
             <div class="accordion-collapse" id="accordion-collapse-pisa-framework">
               <div class="accordion-body">
                 <input type="text" name="pisa_framework" placeholder="Search Lesson">
@@ -122,17 +129,17 @@
         item.querySelector('.accordion-collapse').classList.toggle('show');
       }));
     }
-  
+
     const addTopicButton = document.getElementById('add-topic');
     const topicContainer = document.querySelector('.topic-container');
-  
-    let topicCount = 1; 
-  
+
+    let topicCount = 1;
+
     addTopicButton.addEventListener('click', () => {
-      topicCount++; 
+      topicCount++;
       const newTopicAccordion = document.createElement('div');
       newTopicAccordion.className = 'accordion-item';
-  
+
       newTopicAccordion.innerHTML = `
         <h2 class="accordion-header">Lesson ${topicCount}</h2>
         <div class="accordion-collapse" id="accordion-collapse-topic-${topicCount}">
@@ -170,39 +177,49 @@
           </div>
         </div>
       `;
-  
+
       topicContainer.appendChild(newTopicAccordion);
-  
+
       addAccordionClickEventListeners();
     });
-  
+
     const addCourseSkillButton = document.getElementById('add-course-skill');
-  
+
     addCourseSkillButton.addEventListener('click', () => {
       const newCourseSkillInput = document.createElement('input');
       newCourseSkillInput.type = 'text';
       newCourseSkillInput.name = 'course_skill';
       newCourseSkillInput.placeholder = 'Course Skill';
-  
+
       const accordionBody = document.querySelector('#accordion-collapse-course-skill');
       accordionBody.appendChild(newCourseSkillInput);
     });
-  
+
     const addCourseTitleButton = document.getElementById('add-course-title');
-  
+
     addCourseTitleButton.addEventListener('click', () => {
       const newCourseTitleInput = document.createElement('input');
       newCourseTitleInput.type = 'text';
       newCourseTitleInput.name = 'course_title';
       newCourseTitleInput.placeholder = 'Course Title';
-  
+
       const accordionBody = document.querySelector('#accordion-collapse-course-title');
       accordionBody.appendChild(newCourseTitleInput);
     });
-  
+
     addAccordionClickEventListeners();
-  
+
+    // ==========Select Course title =====================================
+    const courseTitle = document.getElementById('select_course_title');
+    const courseHeaderTitle = document.getElementById('course_header_title');
+
+    courseTitle.addEventListener('change', (e) => {
+    e.preventDefault();
+    courseHeaderTitle.innerText = `${courseTitle[courseTitle.selectedIndex].text} `;
+});
+
+
   </script>
-  
+
 </body>
 </html>
